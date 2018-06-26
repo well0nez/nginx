@@ -1,11 +1,6 @@
 FROM armhfbuild/debian:jessie
-
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
-
-
-
-ENV NGINX_VERSION 1.11.9-1~jessie
-
+ENV NGINX_VERSION 1.15.0-1~jessie
 
 RUN apt-get update && \
     apt-get install -y wget debian-archive-keyring ca-certificates && \
