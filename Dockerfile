@@ -12,11 +12,11 @@ RUN apt-get update && \
 
 RUN cd /tmp \
  && apt-get source nginx \
- && cd nginx-${NGINX_VERSION} \
+ && cd nginx-1.15.0 \
  && dpkg-buildpackage -uc -b \
  && cd .. \
  && rm nginx-${NGINX_VERSION} -fR \
- && mv nginx_${NGINX_VERSION}-*.deb /
+ && mv nginx_${NGINX_VERSION}_*.deb /
 RUN dpkg -i /nginx_${NGINX_VERSION}-*.deb
 
 # forward request and error logs to docker log collector
