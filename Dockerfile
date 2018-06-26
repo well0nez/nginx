@@ -1,6 +1,6 @@
 FROM armhfbuild/debian:sid
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
-ENV NGINX_VERSION 1.15.0-1~jessie
+ENV NGINX_VERSION 1.13.4-1~wheezy
 
 RUN apt-get update && \
     apt-get install -y wget debian-archive-keyring ca-certificates && \
@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 RUN cd /tmp \
  && apt-get source nginx \
- && cd nginx-1.15.0 \
+ && cd nginx-1.13.4 \
  && dpkg-buildpackage -uc -b \
  && cd .. \
  && rm nginx-${NGINX_VERSION} -fR \
