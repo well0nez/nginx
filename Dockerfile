@@ -5,7 +5,7 @@ ENV NGINX_VERSION 1.13.4-1~wheezy
 RUN apt-get update && \
     apt-get install -y wget debian-archive-keyring ca-certificates && \
     wget -O /tmp/nginx_signing.key "http://nginx.org/keys/nginx_signing.key" && \
-    echo "deb-src http://nginx.org/packages/mainline/debian/ sid wheezy" >> /etc/apt/sources.list && \
+    echo "deb-src http://nginx.org/packages/mainline/debian/ wheezy main" >> /etc/apt/sources.list && \
     apt-key add /tmp/nginx_signing.key && \
     apt-get update && \
     apt-get -y build-dep nginx
