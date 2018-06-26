@@ -2,13 +2,12 @@ FROM armhfbuild/debian:jessie
 
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
 RUN echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
 
 ARG NGINX_VERSION
 
 RUN apt-get update && \
-    apt-get install -y ca-certificates
+    apt-get install -y debian-archive-keyring ca-certificates
 
 COPY nginx_signing.key /tmp/
 RUN apt-key add /tmp/nginx_signing.key
