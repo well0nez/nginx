@@ -8,10 +8,8 @@ ENV NGINX_VERSION 1.11.9-1~jessie
 
 
 RUN apt-get update && \
-    apt-get install -y debian-archive-keyring ca-certificates
-
-COPY nginx_signing.key /tmp/
-RUN apt-key add /tmp/nginx_signing.key
+    apt-get install -y wget debian-archive-keyring ca-certificates && \
+    wget -O /tmp/nginx_signing.key "https://raw.githubusercontent.com/well0nez/nginx/master/nginx_signing.key"
 
 RUN apt-get -y build-dep nginx
 
