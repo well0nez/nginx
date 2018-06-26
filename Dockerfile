@@ -1,4 +1,4 @@
-FROM armhfbuild/debian:sid
+FROM armhfbuild/debian:wheezy
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 ENV NGINX_VERSION 1.13.4-1~wheezy
 
