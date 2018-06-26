@@ -4,7 +4,8 @@ MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
 RUN echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
 
-ARG NGINX_VERSION
+ENV NGINX_VERSION 1.11.9-1~jessie
+
 
 RUN apt-get update && \
     apt-get install -y debian-archive-keyring ca-certificates
@@ -29,6 +30,6 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/cache/nginx"]
 
-EXPOSE 81 443
+EXPOSE 81
 
 CMD ["nginx", "-g", "daemon off;"]
