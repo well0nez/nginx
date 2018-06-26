@@ -2,16 +2,17 @@ FROM armhfbuild/debian:jessie
 
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
-RUN echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
+
 
 ENV NGINX_VERSION 1.11.9-1~jessie
 
 
 RUN apt-get update && \
     apt-get install -y wget debian-archive-keyring ca-certificates && \
-    wget -O /tmp/nginx_signing.key "https://raw.githubusercontent.com/well0nez/nginx/master/nginx_signing.key"
-
-RUN apt-get -y build-dep nginx
+    wget -O /tmp/nginx_signing.key "https://raw.githubusercontent.com/well0nez/nginx/master/nginx_signing.key" && \
+    echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get -y build-dep nginx
 
 RUN cd /tmp \
  && apt-get source nginx \
