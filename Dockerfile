@@ -1,11 +1,11 @@
-FROM armhfbuild/debian:jessie
+FROM armhfbuild/debian:sid
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 ENV NGINX_VERSION 1.15.0-1~jessie
 
 RUN apt-get update && \
     apt-get install -y wget debian-archive-keyring ca-certificates && \
     wget -O /tmp/nginx_signing.key "http://nginx.org/keys/nginx_signing.key" && \
-    echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list && \
+    echo "deb-src http://nginx.org/packages/mainline/debian/ sid nginx" >> /etc/apt/sources.list && \
     apt-key add /tmp/nginx_signing.key && \
     apt-get update && \
     apt-get -y build-dep nginx
